@@ -15,15 +15,10 @@ function updateThemeIcon() {
   const themeButton = document.querySelector('[onclick="toggleTheme()"]');
   
   if (themeButton) {
-    const desktopText = themeButton.querySelector('.d-none.d-sm-inline');
-    const mobileIcon = themeButton.querySelector('.d-sm-none');
-    
     if (currentTheme === 'dark') {
-      if (desktopText) desktopText.textContent = '☀️ Light Mode';
-      if (mobileIcon) mobileIcon.textContent = '☀️';
+      themeButton.textContent = '☀️';
     } else {
-      if (desktopText) desktopText.textContent = '🌙 Dark Mode';
-      if (mobileIcon) mobileIcon.textContent = '🌙';
+      themeButton.textContent = '🌙';
     }
   }
 }
