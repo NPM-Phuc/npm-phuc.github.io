@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Applied Data Science Lab — Phuc Nguyen (Orchard)</title>
+  <meta name="description" content="Applied Data Science Lab project showcase - WorldQuant University course work including machine learning models, data visualizations, and analytical insights." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./css/styles.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Page container -->
+  <div class="min-vh-100 print-bg-white">
+    <!-- Header / Nav -->
+    <header class="navbar-custom position-sticky top-0" style="z-index: 1040;">
+      <div class="container-xl">
+        <div class="d-flex justify-content-between align-items-center py-3">
+          <nav class="d-flex gap-3">
+            <a href="./index.html" class="text-decoration-none text-muted">← Back to Portfolio</a>
+          </nav>
+          <div class="d-flex align-items-center gap-2">
+            <button onclick="toggleTheme()" class="btn btn-outline-secondary btn-sm btn-rounded no-print">
+              <span class="d-none d-sm-inline">🌙 Dark Mode</span>
+              <span class="d-sm-none">🌙</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="container-xl px-4 py-5">
+      <div class="card-custom hero-card rounded-3 shadow-sm p-4 p-md-5">
+        <div class="d-flex justify-content-between align-items-start mb-4">
+          <div>
+            <h1 class="display-5 fw-bold mb-3">Applied Data Science Lab</h1>
+            <p class="fs-5 text-muted mb-2">WorldQuant University</p>
+            <p class="text-muted">May 2025 – June 2025</p>
+          </div>
+          <img src="./images/worldquant_logo.jpeg" alt="WorldQuant University Logo" class="rounded" style="height: 60px; width: auto;">
+        </div>
+        <p class="lead">
+          Comprehensive data science program covering machine learning, data visualization, and predictive analytics across diverse real-world datasets. Applied statistical modeling and visualization techniques to solve complex problems in finance, environmental science, and urban planning.
+        </p>
+      </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="container-xl px-4 py-4">
+      <h2 class="h2 fw-bold mb-4 section-header projects-header">Project Overview</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card-custom rounded-3 shadow-sm p-4 h-100">
+            <h3 class="h5 fw-semibold mb-3">🏠 Financial Vulnerability Analysis</h3>
+            <ul class="list-unstyled">
+              <li class="mb-2">• Built interactive Dash app for K-means clustering results</li>
+              <li class="mb-2">• Visualized patterns in financially vulnerable households</li>
+              <li class="mb-2">• Implemented data filtering and exploration tools</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-custom rounded-3 shadow-sm p-4 h-100">
+            <h3 class="h5 fw-semibold mb-3">📊 Bankruptcy Prediction - Poland</h3>
+            <ul class="list-unstyled">
+              <li class="mb-2">• Trained Random Forest and Gradient Boosting models</li>
+              <li class="mb-2">• Achieved high accuracy in bankruptcy prediction</li>
+              <li class="mb-2">• Feature importance analysis and model comparison</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-custom rounded-3 shadow-sm p-4 h-100">
+            <h3 class="h5 fw-semibold mb-3">🏗️ Earthquake Damage Assessment - Nepal</h3>
+            <ul class="list-unstyled">
+              <li class="mb-2">• Logistic Regression and Decision Tree classifiers</li>
+              <li class="mb-2">• Predicted structural damage from earthquake data</li>
+              <li class="mb-2">• Cross-validation and performance optimization</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-custom rounded-3 shadow-sm p-4 h-100">
+            <h3 class="h5 fw-semibold mb-3">🌬️ Air Quality Forecasting</h3>
+            <ul class="list-unstyled">
+              <li class="mb-2">• AR and ARMA time series models</li>
+              <li class="mb-2">• PM2.5 readings prediction and analysis</li>
+              <li class="mb-2">• Seasonal pattern identification</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-custom rounded-3 shadow-sm p-4 h-100">
+            <h3 class="h5 fw-semibold mb-3">🏘️ Housing Price Prediction</h3>
+            <ul class="list-unstyled">
+              <li class="mb-2">• Linear Regression and Ridge models</li>
+              <li class="mb-2">• Buenos Aires and Mexico City markets</li>
+              <li class="mb-2">• Regularization techniques and feature engineering</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-custom rounded-3 shadow-sm p-4 h-100">
+            <h3 class="h5 fw-semibold mb-3">🏢 Real Estate Market Analysis</h3>
+            <ul class="list-unstyled">
+              <li class="mb-2">• Analyzed 21,000+ Mexico real estate listings</li>
+              <li class="mb-2">• Property size vs. location impact on pricing</li>
+              <li class="mb-2">• Statistical insights and market trends</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visualizations & Results -->
+    <section class="container-xl px-4 py-4">
+      <h2 class="h2 fw-bold mb-4 section-header education-header">Visualizations & Model Performance</h2>
+      
+      <!-- Placeholder for screenshots - you can add your actual images here -->
+      <div class="alert alert-info rounded-3 mb-4">
+        <h5 class="alert-heading mb-3">📸 Project Screenshots Coming Soon</h5>
+        <p class="mb-2">This section will showcase:</p>
+        <ul class="mb-0">
+          <li>Interactive dashboard screenshots from the Dash application</li>
+          <li>Model performance metrics and confusion matrices</li>
+          <li>Data visualization charts and plots</li>
+          <li>Feature importance graphs and correlation heatmaps</li>
+          <li>Time series forecasting results</li>
+          <li>Clustering analysis visualizations</li>
+        </ul>
+      </div>
+
+      <!-- Example structure for when you add images -->
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card-custom rounded-3 shadow-sm p-4">
+            <h3 class="h6 fw-semibold mb-3">K-means Clustering Dashboard</h3>
+            <div class="bg-light rounded-3 p-4 text-center" style="min-height: 200px;">
+              <p class="text-muted mb-0">Screenshot placeholder</p>
+              <small class="text-muted">Interactive Dash application interface</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-custom rounded-3 shadow-sm p-4">
+            <h3 class="h6 fw-semibold mb-3">Model Performance Metrics</h3>
+            <div class="bg-light rounded-3 p-4 text-center" style="min-height: 200px;">
+              <p class="text-muted mb-0">Screenshot placeholder</p>
+              <small class="text-muted">Accuracy scores and confusion matrices</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-custom rounded-3 shadow-sm p-4">
+            <h3 class="h6 fw-semibold mb-3">Feature Importance Analysis</h3>
+            <div class="bg-light rounded-3 p-4 text-center" style="min-height: 200px;">
+              <p class="text-muted mb-0">Screenshot placeholder</p>
+              <small class="text-muted">Variable importance rankings</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-custom rounded-3 shadow-sm p-4">
+            <h3 class="h6 fw-semibold mb-3">Time Series Forecasting</h3>
+            <div class="bg-light rounded-3 p-4 text-center" style="min-height: 200px;">
+              <p class="text-muted mb-0">Screenshot placeholder</p>
+              <small class="text-muted">PM2.5 prediction results</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technologies Used -->
+    <section class="container-xl px-4 py-4">
+      <h2 class="h2 fw-bold mb-4 section-header skills-header">Technologies & Tools</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card-custom skill-card-1 rounded-3 shadow-sm p-4 h-100">
+            <h3 class="h6 fw-semibold">Programming & Libraries</h3>
+            <ul class="list-unstyled mt-2">
+              <li>• Python, Pandas, NumPy</li>
+              <li>• Scikit-learn, Statsmodels</li>
+              <li>• Matplotlib, Seaborn, Plotly</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-custom skill-card-2 rounded-3 shadow-sm p-4 h-100">
+            <h3 class="h6 fw-semibold">Machine Learning</h3>
+            <ul class="list-unstyled mt-2">
+              <li>• Random Forest, Gradient Boosting</li>
+              <li>• Logistic Regression, Decision Trees</li>
+              <li>• K-means Clustering, Time Series</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-custom skill-card-3 rounded-3 shadow-sm p-4 h-100">
+            <h3 class="h6 fw-semibold">Visualization & Deployment</h3>
+            <ul class="list-unstyled mt-2">
+              <li>• Dash Interactive Applications</li>
+              <li>• Statistical Data Analysis</li>
+              <li>• Model Performance Evaluation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Course Link -->
+    <section class="container-xl px-4 py-4">
+      <div class="card-custom rounded-3 shadow-sm p-4 text-center">
+        <h3 class="h5 fw-semibold mb-3">Course Information</h3>
+        <p class="mb-3">Learn more about the Applied Data Science Lab program</p>
+        <a href="https://classroom.emeritus.org/courses/7319" target="_blank" rel="noopener" class="btn btn-outline-primary btn-rounded">
+          View Course Details →
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-top py-3 text-center">
+      <div class="container">
+        <p class="small text-muted mb-0">© <span id="y"></span> Phuc Nguyen (Orchard) • Built with Bootstrap</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="./js/script.js"></script>
+</body>
+</html>
