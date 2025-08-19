@@ -1,53 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phuc Nguyen's Resume</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Phuc Nguyen (Orchard) — Resume</title>
+  <meta name="description" content="Resume website for Phuc Nguyen (Orchard), Information Technology student at RMIT and aspiring Product Coordinator Intern." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { color-scheme: light dark; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif; }
+    @media print {
+      .no-print { display: none !important; }
+      .print\:block { display: block !important; }
+      .print\:bg-white { background: #fff !important; }
+      .print\:shadow-none { box-shadow: none !important; }
+      .print\:p-0 { padding: 0 !important; }
+    }
+  </style>
+  <script>
+    // Simple dark mode toggle preserving preference
+    (function() {
+      const stored = localStorage.getItem('theme');
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (stored === 'dark' || (!stored && systemDark)) document.documentElement.classList.add('dark');
+    })();
+    function toggleTheme(){
+      const el = document.documentElement;
+      const isDark = el.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+  </script>
 </head>
-<body bgcolor="ghostwhite">
-    <table>
-        <tr>
-            <td><img src="/images/pfp.jpg" alt="Personal Image" height="300"></td>
-            <td>
-                <h1>Nguyễn Phước Minh Phúc</h1>
-                <h2>Student at RMIT 👨🏻‍🎓👨🏻‍🎓</h2>
-                <p>Hi everybody 👁👄👁🤚! I am a 1st year student here at RMIT. 
-                    <br> I'm an extroverted introvert, which means that I'm really quiet until I feel comfortable with the people I'm with and then, my true colors show. ➖👅👁️
-                    <br> 🍉🍊🍋🍋‍🟩🫐🍇
-                </p>
-                <h3>💖My Hobbies💖:</h3>
-                <ul>
-                    <li>Sleeping 🛌</li>
-                    <li>Listening to Music 🎧</li>
-                    <li>Baking 🧁</li>
-                </ul>
-            </td>
-        </tr>
-    </table>
-    <h2>✨My Passion✨:</h2>
-    <p>File Not Found 🤖🫥 ...I'm young right? I still have time to find out right...?</p>    
-    <h2>🛠️My Skill Set🛠️:</h2>
-    <p>
-        <ul>
-        <table>
-            <tr>
-                <td><li>Language (Presentations & Reports)</li></td>
-                <td>⭐️⭐️⭐️⭐️</td>
-            </tr>
-            <tr>
-                <td><li>Java</li></td>
-                <td>⭐️⭐️⭐️⭐️</td>
-            </tr>
-            <tr>
-                <td><li>Python</li></td>
-                <td>⭐️⭐️⭐️</td>
-            </tr>
-            <tr>
-                <td><li>HTML & CSS</li></td>
-                <td>⭐️⭐️</td>
-            </tr>
-        </table>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+  <!-- Page container -->
+  <div class="min-h-screen print:bg-white">
+    <!-- Header / Nav -->
+    <header class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-slate-900/60 border-b border-slate-200/70 dark:border-slate-800/60 no-print">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+        <nav class="text-sm font-medium text-slate-600 dark:text-slate-300 flex gap-4">
+          <a href="#about" class="hover:text-slate-900 dark:hover:text-white">About</a>
+          <a href="#experience" class="hover:text-slate-900 dark:hover:text-white">Experience</a>
+          <a href="#projects" class="hover:text-slate-900 dark:hover:text-white">Projects</a>
+          <a href="#education" class="hover:text-slate-900 dark:hover:text-white">Education</a>
+          <a href="#skills" class="hover:text-slate-900 dark:hover:text-white">Skills</a>
+          <a href="#languages" class="hover:text-slate-900 dark:hover:text-white">Languages</a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <a href="./Phuc Nguyen (Orchard) CV (PC Intern).pdf" download class="inline-flex items-center rounded-xl border border-slate-300 dark:border-slate-700 px-3 py-1.5 text-sm font-semibold hover:bg-slate-100 dark:hover:bg-slate-800">Download PDF</a>
+          <button onclick="toggleTheme()" class="inline-flex items-center rounded-xl border border-slate-300 dark:border-slate-700 px-3 py-1.5 text-sm font-semibold hover:bg-slate-100 dark:hover:bg-slate-800" aria-label="Toggle dark mode">Theme</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero / About -->
+    <section id="about" class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-10 print:p-0">
+      <div class="bg-white/80 dark:bg-slate-900/80 print:bg-white rounded-3xl shadow-sm ring-1 ring-slate-200 dark:ring-slate-800 p-8 print:shadow-none">
+        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+          <div>
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Phuc Nguyen (Orchard)</h1>
+            <p class="mt-1 text-lg text-slate-600 dark:text-slate-300">Information Technology Student at RMIT</p>
+            <p class="mt-4 leading-relaxed text-slate-700 dark:text-slate-300 max-w-3xl">
+              Ambitious and detail-oriented with a foundation in data analysis, communication, and cross‑functional collaboration. Experienced in managing tech-focused projects—from full‑stack web platforms to data‑driven dashboards—with strong skills in organization, documentation, and team coordination. Proficient with Google Workspace, Excel, Python, and SQL; eager to expand knowledge of Notion, Jira, Figma, and AI tools. Fluent in English (IELTS 8.5) and Vietnamese; conversational in Chinese and Japanese. Passionate about tech products, time management, and user‑focused solutions.
+            </p>
+          </div>
+          <aside class="shrink-0">
+            <div class="grid gap-2 text-sm">
+              <a href="tel:+84799324963" class="text-slate-700 dark:text-slate-200 hover:underline">(+84) 0799 324 963</a>
+              <a href="mailto:orchid.phucnguyen@gmail.com" class="text-slate-700 dark:text-slate-200 hover:underline">orchid.phucnguyen@gmail.com</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-6">
+      <h2 class="text-2xl font-bold mb-4">Experience</h2>
+      <div class="space-y-4">
+        <article class="rounded-2xl bg-white/80 dark:bg-slate-900/80 ring-1 ring-slate-200 dark:ring-slate-800 p-6">
+          <header class="flex items-start justify-between gap-4">
+            <div>
+              <h3 class="text-lg font-semibold">Part‑Time English Teacher — Liam English</h3>
+              <p class="text-sm text-slate-500 dark:text-slate-400">Feb 2025 – Present</p>
+            </div>
+          </header>
+        </article>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-6">
+      <h2 class="text-2xl font-bold mb-4">Projects</h2>
+
+      <article class="rounded-2xl bg-white/80 dark:bg-slate-900/80 ring-1 ring-slate-200 dark:ring-slate-800 p-6">
+        <header class="flex items-start justify-between gap-4">
+          <div>
+            <h3 class="text-lg font-semibold">Applied Data Science Lab — WorldQuant University</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400">May 2025 – June 2025</p>
+          </div>
+          <a class="text-sm underline decoration-dotted hover:no-underline" href="https://classroom.emeritus.org/courses/7319" target="_blank" rel="noopener">Course Link</a>
+        </header>
+        <ul class="mt-4 list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300">
+          <li>Built an interactive Dash app to visualize K‑means results and communicate insights on financially vulnerable households.</li>
+          <li>Trained Random Forest and Gradient Boosting models to predict potential bankruptcy in Poland.</li>
+          <li>Developed Logistic Regression and Decision Tree classifiers to predict earthquake damage in Nepal.</li>
+          <li>Implemented AR and ARMA models to forecast air quality and PM2.5 readings.</li>
+          <li>Created Linear Regression and Ridge models for housing prices in Buenos Aires and Mexico City.</li>
+          <li>Analyzed 21k Mexico real‑estate listings to evaluate the impact of property size vs. location on price.</li>
         </ul>
+      </article>
+
+      <div class="grid md:grid-cols-2 gap-4 mt-4">
+        <article class="rounded-2xl bg-white/80 dark:bg-slate-900/80 ring-1 ring-slate-200 dark:ring-slate-800 p-6">
+          <h3 class="text-lg font-semibold">VinaSoul — Full‑Stack Travel Guide Platform</h3>
+          <ul class="mt-2 list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300">
+            <li>Connects tourists with English‑speaking guides to promote genuine local experiences in Vietnam.</li>
+          </ul>
+        </article>
+        <article class="rounded-2xl bg-white/80 dark:bg-slate-900/80 ring-1 ring-slate-200 dark:ring-slate-800 p-6">
+          <h3 class="text-lg font-semibold">Climate Change Statistics Website</h3>
+          <ul class="mt-2 list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300">
+            <li>Built interactive visualizations and subset makers for researchers to filter and explore country‑level metrics.</li>
+          </ul>
+        </article>
+        <article class="rounded-2xl bg-white/80 dark:bg-slate-900/80 ring-1 ring-slate-200 dark:ring-slate-800 p-6">
+          <h3 class="text-lg font-semibold">4‑Story Startup Building — Network Design</h3>
+          <ul class="mt-2 list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300">
+            <li>Designed physical and logical network layout with VLANs and IoT device integration.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-6">
+      <h2 class="text-2xl font-bold mb-4">Education</h2>
+
+      <div class="space-y-4">
+        <article class="rounded-2xl bg-white/80 dark:bg-slate-900/80 ring-1 ring-slate-200 dark:ring-slate-800 p-6">
+          <h3 class="text-lg font-semibold">Bachelor of Information Technology — RMIT Saigon South</h3>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Feb 2024 – Present</p>
+        </article>
+
+        <article class="rounded-2xl bg-white/80 dark:bg-slate-900/80 ring-1 ring-slate-200 dark:ring-slate-800 p-6">
+          <h3 class="text-lg font-semibold">High School Diploma — Singapore International School</h3>
+          <ul class="mt-2 list-disc pl-5 space-y-1 text-slate-700 dark:text-slate-300">
+            <li>ACT: 35/36</li>
+            <li>Dux Award (Highest Overall Achievement)</li>
+            <li>Maths Champion Award</li>
+            <li>Literature Champion Award</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-6">
+      <h2 class="text-2xl font-bold mb-4">Skills</h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="rounded-2xl bg-white/80 dark:bg-slate-900/80 ring-1 ring-slate-200 dark:ring-slate-800 p-6">
+          <h3 class="font-semibold">Software & Tools</h3>
+          <ul class="mt-2 list-disc pl-5 space-y-1 text-slate-700 dark:text-slate-300">
+            <li>Google Workspace, Excel</li>
+            <li>Notion, Jira, Figma (learning)</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl bg-white/80 dark:bg-slate-900/80 ring-1 ring-slate-200 dark:ring-slate-800 p-6">
+          <h3 class="font-semibold">Development & Data</h3>
+          <ul class="mt-2 list-disc pl-5 space-y-1 text-slate-700 dark:text-slate-300">
+            <li>Full‑stack Web Development, UI/UX Design</li>
+            <li>Data Visualization, Machine Learning</li>
+            <li>Python, JavaScript, Java, SQL</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl bg-white/80 dark:bg-slate-900/80 ring-1 ring-slate-200 dark:ring-slate-800 p-6">
+          <h3 class="font-semibold">Soft Skills</h3>
+          <ul class="mt-2 list-disc pl-5 space-y-1 text-slate-700 dark:text-slate-300">
+            <li>Communication & Documentation</li>
+            <li>Cross‑functional Collaboration</li>
+            <li>Time Management & Coordination</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Languages -->
+    <section id="languages" class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-6 mb-10">
+      <h2 class="text-2xl font-bold mb-4">Languages</h2>
+      <ul class="rounded-2xl bg-white/80 dark:bg-slate-900/80 ring-1 ring-slate-200 dark:ring-slate-800 p-6 grid gap-2 md:grid-cols-2 text-slate-700 dark:text-slate-300">
+        <li><strong>English:</strong> IELTS 8.5 (CEFR C2)</li>
+        <li><strong>Vietnamese:</strong> Native/Fluent</li>
+        <li><strong>Chinese:</strong> HSK5 (Conversational)</li>
+        <li><strong>Japanese:</strong> N5 (Conversational)</li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 dark:border-slate-800 py-6 text-center text-sm text-slate-500">
+      <p>© <span id="y"></span> Phuc Nguyen (Orchard) • Built with Tailwind</p>
+    </footer>
+  </div>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Phuc Nguyen (Orchard)",
+    "email": "mailto:orchid.phucnguyen@gmail.com",
+    "telephone": "+84-799-324-963",
+    "jobTitle": "Information Technology Student",
+    "alumniOf": [{"@type":"CollegeOrUniversity","name":"RMIT Saigon South"}],
+    "knowsAbout": [
+      "Full-stack development", "UI/UX", "Data Visualization", "Machine Learning",
+      "Python", "JavaScript", "Java", "SQL"
+    ],
+    "url": window.location.href
+  }
+  </script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
