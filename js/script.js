@@ -91,3 +91,30 @@ function initLanguageProgressBars() {
     console.log('Languages section not found!'); // Debug log
   }
 }
+
+// Video fullscreen functionality for lab page
+function toggleVideoFullscreen(videoId) {
+  const video = document.getElementById(videoId);
+  
+  if (video) {
+    if (video.classList.contains('fullscreen-video')) {
+      video.classList.remove('fullscreen-video');
+      document.body.style.overflow = 'auto';
+    } else {
+      video.classList.add('fullscreen-video');
+      document.body.style.overflow = 'hidden';
+      video.play();
+    }
+  }
+}
+
+// Close fullscreen on Escape key
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    const fullscreenVideo = document.querySelector('.fullscreen-video');
+    if (fullscreenVideo) {
+      fullscreenVideo.classList.remove('fullscreen-video');
+      document.body.style.overflow = 'auto';
+    }
+  }
+});

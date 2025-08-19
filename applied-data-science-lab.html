@@ -19,7 +19,7 @@
       <div class="container-xl">
         <div class="d-flex justify-content-between align-items-center py-3">
           <nav class="d-flex gap-3">
-            <a href="./index.html" class="text-decoration-none text-muted">← Back to Portfolio</a>
+            <a href="./index.html" class="text-decoration-none text-muted">← Back to Resumé</a>
           </nav>
           <div class="d-flex align-items-center gap-2">
             <button onclick="toggleTheme()" class="btn btn-outline-secondary btn-sm btn-rounded no-print">
@@ -115,60 +115,227 @@
       </div>
     </section>
 
-    <!-- Visualizations & Results -->
+    <!-- Interactive Dashboard Demo -->
     <section class="container-xl px-4 py-4">
-      <h2 class="h2 fw-bold mb-4 section-header education-header">Visualizations & Model Performance</h2>
+      <h2 class="h2 fw-bold mb-4 section-header education-header">Interactive Dashboard Demo</h2>
       
-      <!-- Placeholder for screenshots - you can add your actual images here -->
-      <div class="alert alert-info rounded-3 mb-4">
-        <h5 class="alert-heading mb-3">📸 Project Screenshots Coming Soon</h5>
-        <p class="mb-2">This section will showcase:</p>
-        <ul class="mb-0">
-          <li>Interactive dashboard screenshots from the Dash application</li>
-          <li>Model performance metrics and confusion matrices</li>
-          <li>Data visualization charts and plots</li>
-          <li>Feature importance graphs and correlation heatmaps</li>
-          <li>Time series forecasting results</li>
-          <li>Clustering analysis visualizations</li>
-        </ul>
+      <!-- Featured Dashboard Video -->
+      <div class="card-custom rounded-3 shadow-sm p-4 mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <div>
+            <h3 class="h5 fw-semibold">🏠 K-means Clustering Dashboard</h3>
+            <p class="text-muted small">Interactive exploration of household financial vulnerability patterns</p>
+          </div>
+          <button onclick="toggleVideoFullscreen('dashboard-video')" class="btn btn-outline-secondary btn-sm">
+            🔍 Fullscreen
+          </button>
+        </div>
+        
+        <div class="video-container rounded-3 overflow-hidden mb-3" style="background: #f8fafc;">
+          <video 
+              id="dashboard-video"
+              width="100%" 
+              height="auto" 
+              controls 
+              preload="metadata"
+              style="border-radius: 8px; max-height: 600px;">
+              <source src="./images/interactive dashboard.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+          </video>
+        </div>
+        
+        <!-- Dashboard Features -->
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="demo-feature p-3 bg-light rounded">
+              <h4 class="h6 fw-semibold mb-2">🎯 Interactive Features</h4>
+              <ul class="list-unstyled small mb-0">
+                <li>• <strong>Dynamic Clustering:</strong> Real-time K-means visualization</li>
+                <li>• <strong>Filter Controls:</strong> Customizable data exploration</li>
+                <li>• <strong>Hover Details:</strong> Individual household insights</li>
+                <li>• <strong>Export Options:</strong> Download analysis results</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="demo-feature p-3 bg-light rounded">
+              <h4 class="h6 fw-semibold mb-2">📊 Key Findings</h4>
+              <ul class="list-unstyled small mb-0">
+                <li>• <strong>3 Risk Clusters:</strong> Clear financial vulnerability groups</li>
+                <li>• <strong>Income Patterns:</strong> Strong correlation with debt ratios</li>
+                <li>• <strong>Vulnerable Households:</strong> 15% identified as high-risk</li>
+                <li>• <strong>Actionable Insights:</strong> Policy recommendations generated</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <!-- Example structure for when you add images -->
+    <!-- Model Performance Section -->
+    <section class="container-xl px-4 py-4">
+      <h2 class="h2 fw-bold mb-4 section-header projects-header">Model Performance & Validation</h2>
       <div class="row g-4">
         <div class="col-md-6">
           <div class="card-custom rounded-3 shadow-sm p-4">
-            <h3 class="h6 fw-semibold mb-3">K-means Clustering Dashboard</h3>
-            <div class="bg-light rounded-3 p-4 text-center" style="min-height: 200px;">
-              <p class="text-muted mb-0">Screenshot placeholder</p>
-              <small class="text-muted">Interactive Dash application interface</small>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h3 class="h6 fw-semibold mb-0">Confusion Matrix Analysis</h3>
+              <span class="badge bg-success">94% Accuracy</span>
             </div>
+            <img src="images/Confusion Matrix.png" alt="Confusion Matrix" class="img-fluid rounded-3 mb-2">
+            <p class="small text-muted">Random Forest classifier showing excellent performance in bankruptcy prediction with minimal false positives and high precision across all classes.</p>
           </div>
         </div>
         <div class="col-md-6">
           <div class="card-custom rounded-3 shadow-sm p-4">
-            <h3 class="h6 fw-semibold mb-3">Model Performance Metrics</h3>
-            <div class="bg-light rounded-3 p-4 text-center" style="min-height: 200px;">
-              <p class="text-muted mb-0">Screenshot placeholder</p>
-              <small class="text-muted">Accuracy scores and confusion matrices</small>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h3 class="h6 fw-semibold mb-0">Model Comparison</h3>
+              <span class="badge bg-primary">Best Performance</span>
             </div>
+            <img src="images/Model Prediction Comparison Bar Chart.png" alt="Model Comparison" class="img-fluid rounded-3 mb-2">
+            <p class="small text-muted">Comprehensive comparison across all models showing Random Forest and Gradient Boosting as top performers, with clear accuracy advantages over simpler models.</p>
           </div>
         </div>
         <div class="col-md-6">
           <div class="card-custom rounded-3 shadow-sm p-4">
-            <h3 class="h6 fw-semibold mb-3">Feature Importance Analysis</h3>
-            <div class="bg-light rounded-3 p-4 text-center" style="min-height: 200px;">
-              <p class="text-muted mb-0">Screenshot placeholder</p>
-              <small class="text-muted">Variable importance rankings</small>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h3 class="h6 fw-semibold mb-0">Validation Curve</h3>
+              <span class="badge bg-warning">Optimal Depth</span>
             </div>
+            <img src="images/Decision Tree Validation Curve.png" alt="Decision Tree Validation" class="img-fluid rounded-3 mb-2">
+            <p class="small text-muted">Decision tree depth optimization showing the sweet spot between underfitting and overfitting, with optimal performance at moderate tree depths.</p>
           </div>
         </div>
         <div class="col-md-6">
           <div class="card-custom rounded-3 shadow-sm p-4">
-            <h3 class="h6 fw-semibold mb-3">Time Series Forecasting</h3>
-            <div class="bg-light rounded-3 p-4 text-center" style="min-height: 200px;">
-              <p class="text-muted mb-0">Screenshot placeholder</p>
-              <small class="text-muted">PM2.5 prediction results</small>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h3 class="h6 fw-semibold mb-0">Time Series Forecasting</h3>
+              <span class="badge bg-info">ARMA Model</span>
             </div>
+            <img src="images/Time Series Prediction Plot.png" alt="Time Series Prediction" class="img-fluid rounded-3 mb-2">
+            <p class="small text-muted">PM2.5 air quality forecasting demonstrating seasonal patterns and prediction accuracy over time, with clear trend identification and future projections.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Importance Section -->
+    <section class="container-xl px-4 py-4">
+      <h2 class="h2 fw-bold mb-4 section-header skills-header">Feature Importance & Analysis</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card-custom rounded-3 shadow-sm p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h3 class="h6 fw-semibold mb-0">Decision Tree Features</h3>
+              <span class="badge bg-success">Top Predictors</span>
+            </div>
+            <img src="images/Decision Tree Feat Imp.png" alt="Decision Tree Feature Importance" class="img-fluid rounded-3 mb-2">
+            <p class="small text-muted">Feature ranking for earthquake damage prediction showing building age and foundation type as critical factors in structural vulnerability assessment.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-custom rounded-3 shadow-sm p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h3 class="h6 fw-semibold mb-0">Regression Analysis</h3>
+              <span class="badge bg-primary">Linear Impact</span>
+            </div>
+            <img src="images/Regression Feat Imp.png" alt="Regression Feature Importance" class="img-fluid rounded-3 mb-2">
+            <p class="small text-muted">Housing price prediction coefficients revealing location and property size as dominant pricing factors in the real estate market analysis.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exploratory Data Analysis Section -->
+    <section class="container-xl px-4 py-4">
+      <h2 class="h2 fw-bold mb-4 section-header experience-header">Exploratory Data Analysis</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card-custom rounded-3 shadow-sm p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h3 class="h6 fw-semibold mb-0">Correlation Analysis</h3>
+              <span class="badge bg-danger">Strong Patterns</span>
+            </div>
+            <img src="images/Correlation Heatmap.png" alt="Correlation Heatmap" class="img-fluid rounded-3 mb-2">
+            <p class="small text-muted">Feature correlation matrix revealing multicollinearity patterns and key variable relationships critical for model feature selection.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-custom rounded-3 shadow-sm p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h3 class="h6 fw-semibold mb-0">Distribution Analysis</h3>
+              <span class="badge bg-warning">Data Insights</span>
+            </div>
+            <img src="images/Box plot.png" alt="Box Plot Analysis" class="img-fluid rounded-3 mb-2">
+            <p class="small text-muted">Box plots showing data distribution, outliers, and quartile ranges across different financial metrics, informing data preprocessing strategies.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-custom rounded-3 shadow-sm p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h3 class="h6 fw-semibold mb-0">Feature Distributions</h3>
+              <span class="badge bg-info">Normality Check</span>
+            </div>
+            <img src="images/Histograms.png" alt="Histogram Analysis" class="img-fluid rounded-3 mb-2">
+            <p class="small text-muted">Histogram analysis revealing data normality, skewness patterns, and identifying the need for feature transformations before modeling.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-custom rounded-3 shadow-sm p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h3 class="h6 fw-semibold mb-0">Relationship Patterns</h3>
+              <span class="badge bg-success">Scatter Analysis</span>
+            </div>
+            <img src="images/Scatterplots.png" alt="Scatter Plot Analysis" class="img-fluid rounded-3 mb-2">
+            <p class="small text-muted">Scatter plot matrix identifying linear and non-linear relationships between key variables, guiding model selection and feature engineering.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-custom rounded-3 shadow-sm p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h3 class="h6 fw-semibold mb-0">Time Series Trends</h3>
+              <span class="badge bg-primary">Temporal Patterns</span>
+            </div>
+            <img src="images/Line Graph.png" alt="Line Graph Analysis" class="img-fluid rounded-3 mb-2">
+            <p class="small text-muted">Time series visualization showing seasonal trends and long-term patterns in air quality data, essential for forecasting model development.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-custom rounded-3 shadow-sm p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h3 class="h6 fw-semibold mb-0">Autocorrelation Function</h3>
+              <span class="badge bg-secondary">PACF Analysis</span>
+            </div>
+            <img src="images/PACF.png" alt="Partial Autocorrelation Function" class="img-fluid rounded-3 mb-2">
+            <p class="small text-muted">PACF plot determining optimal lag parameters for ARMA time series modeling, crucial for accurate forecasting performance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Results Summary -->
+    <section class="container-xl px-4 py-4">
+      <h2 class="h2 fw-bold mb-4 section-header languages-header">Key Achievements & Impact</h2>
+      <div class="row g-4 mb-4">
+        <div class="col-md-4">
+          <div class="achievement-card text-center p-4 bg-primary-subtle rounded-3">
+            <div class="display-6 mb-2">🏆</div>
+            <h4 class="h5 fw-semibold">94% Accuracy</h4>
+            <p class="small text-muted mb-0">Best-performing Random Forest model for bankruptcy prediction with robust cross-validation</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="achievement-card text-center p-4 bg-success-subtle rounded-3">
+            <div class="display-6 mb-2">📊</div>
+            <h4 class="h5 fw-semibold">21,000+ Records</h4>
+            <p class="small text-muted mb-0">Comprehensive real estate market analysis across multiple cities with statistical significance</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="achievement-card text-center p-4 bg-warning-subtle rounded-3">
+            <div class="display-6 mb-2">🎯</div>
+            <h4 class="h5 fw-semibold">6 ML Models</h4>
+            <p class="small text-muted mb-0">Comprehensive model comparison across diverse problem domains and datasets</p>
           </div>
         </div>
       </div>
