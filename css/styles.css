@@ -205,6 +205,12 @@ body {
   margin-top: auto !important;
 }
 
+.card-custom:hover {
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
 /* Awards styling */
 .award-item {
   display: flex;
@@ -318,16 +324,14 @@ body {
   color: #fbbf24;
 }
 
-/* Language styling */
+/* Language items */
 .language-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 16px;
-  margin: 6px 0;
+  padding: 20px;
   border-radius: 12px;
+  transition: all 0.3s ease;
+  cursor: pointer;
   position: relative;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
 }
 
 .language-item:hover {
@@ -342,10 +346,6 @@ body {
 .language-flag {
   font-size: 24px;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-}
-
-.language-content {
-  flex: 1;
 }
 
 .language-name {
@@ -493,6 +493,86 @@ body {
   font-size: 14px;
   font-weight: 500;
   line-height: 1.3;
+}
+
+/* Typing animation */
+.typing-cursor {
+  animation: blink 1s infinite;
+  font-weight: bold;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Language progress bars */
+.language-progress {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+[data-bs-theme="dark"] .language-progress {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.language-progress-bar {
+  border-radius: 10px;
+  transition: width 2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Individual progress bar colors matching language themes */
+.english-bar {
+  background: linear-gradient(90deg, #1d4ed8, #3b82f6);
+}
+
+.vietnamese-bar {
+  background: linear-gradient(90deg, #dc2626, #fbbf24);
+}
+
+.chinese-bar {
+  background: linear-gradient(90deg, #dc2626, #ef4444);
+}
+
+.japanese-bar {
+  background: linear-gradient(90deg, #ef4444, #9ca3af);
+}
+
+.language-progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Wave animation */
+.wave {
+  animation: wave 2s infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
 }
 
 @media print {
