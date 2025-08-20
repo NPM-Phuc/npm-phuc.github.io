@@ -705,3 +705,121 @@ body {
     margin-bottom: 2rem;
   }
 }
+
+/* Meteor Shower Emoji Stars */
+.flying-stars-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.flying-star {
+  position: absolute;
+  font-size: var(--size, 1em);
+  opacity: 0;
+  left: var(--start-x, 100%);
+  top: var(--start-y, 0%);
+  animation: meteorShower var(--duration, 4s) ease-in var(--delay, 0s) 1 forwards;
+}
+
+/* Default behavior - show flowers, hide stars */
+.flying-star .dark-mode-star {
+  display: none;
+}
+
+.flying-star .light-mode-flower {
+  display: inline;
+  filter: drop-shadow(0 0 8px rgba(255, 105, 180, 0.6)) drop-shadow(0 0 4px rgba(255, 182, 193, 0.8));
+}
+
+/* Show stars in dark mode, hide flowers */
+[data-bs-theme="dark"] .flying-star .dark-mode-star {
+  display: inline;
+  filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.8)) drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
+}
+
+[data-bs-theme="dark"] .flying-star .light-mode-flower {
+  display: none;
+}
+
+@keyframes meteorShower {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.3) rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(-80px, 40px) scale(0.8) rotate(45deg);
+  }
+  15% {
+    opacity: 1;
+    transform: translate(-150px, 75px) scale(1) rotate(90deg);
+  }
+  85% {
+    opacity: 1;
+    transform: translate(-1200px, 600px) scale(1) rotate(450deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-1400px, 700px) scale(0.2) rotate(540deg);
+  }
+}
+
+/* Hide meteor shower after animation completes */
+.flying-stars-container {
+  animation: hideMeteorShower 1s ease-out 8s 1 forwards;
+}
+
+@keyframes hideMeteorShower {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Dark mode shooting stars */
+[data-bs-theme="dark"] .shooting-star {
+  background: linear-gradient(45deg, #fff, #60a5fa, #a78bfa);
+  box-shadow: 0 0 8px #60a5fa, 0 0 16px #a78bfa, 0 0 24px #60a5fa;
+}
+
+[data-bs-theme="dark"] .shooting-star::before {
+  background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.9), rgba(167, 139, 250, 0.7), transparent);
+}
+
+/* Mobile adjustments for shooting stars */
+@media (max-width: 768px) {
+  .shooting-star {
+    width: 3px;
+    height: 3px;
+  }
+  
+  .shooting-star::before {
+    width: 40px;
+    height: 1.5px;
+  }
+  
+  @keyframes shootingStar {
+    0% {
+      opacity: 0;
+      transform: translate(var(--start-x, 0%), var(--start-y, 0%)) scale(0);
+    }
+    10% {
+      opacity: 1;
+      transform: translate(var(--start-x, 0%), var(--start-y, 0%)) scale(1);
+    }
+    90% {
+      opacity: 1;
+      transform: translate(calc(var(--start-x, 0%) + 200px), calc(var(--start-y, 0%) + 150px)) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(calc(var(--start-x, 0%) + 250px), calc(var(--start-y, 0%) + 200px)) scale(0);
+    }
+  }
+}

@@ -12,14 +12,39 @@
 function updateThemeIcon() {
   const html = document.documentElement;
   const currentTheme = html.getAttribute('data-bs-theme');
-  const themeButton = document.querySelector('[onclick="toggleTheme()"]');
+  const themeIcon = document.getElementById('theme-icon');
   
-  if (themeButton) {
+  if (themeIcon) {
     if (currentTheme === 'dark') {
-      themeButton.textContent = '☀️';
+      themeIcon.textContent = '🌙'; // Show moon in dark mode
     } else {
-      themeButton.textContent = '🌙';
+      themeIcon.textContent = '☀️'; // Show sun in light mode
     }
+  }
+}
+
+function restartAnimation() {
+  const container = document.querySelector('.flying-stars-container');
+  if (container) {
+    // Remove the container temporarily to reset animations
+    container.style.display = 'none';
+    container.offsetHeight; // Force reflow
+    container.style.display = 'block';
+    
+    // Reset the hide animation by removing and re-adding the class
+    container.style.animation = 'none';
+    container.offsetHeight; // Force reflow
+    container.style.animation = 'hideMeteorShower 1s ease-out 8s 1 forwards';
+    
+    // Reset all individual star animations
+    const stars = container.querySelectorAll('.flying-star');
+    stars.forEach(star => {
+      star.style.animation = 'none';
+      star.offsetHeight; // Force reflow
+      const delay = star.style.getPropertyValue('--delay') || '0s';
+      const duration = star.style.getPropertyValue('--duration') || '4s';
+      star.style.animation = `meteorShower ${duration} ease-in ${delay} 1 forwards`;
+    });
   }
 }
 
@@ -30,6 +55,9 @@ function toggleTheme(){
   html.setAttribute('data-bs-theme', newTheme);
   localStorage.setItem('theme', newTheme);
   updateThemeIcon();
+  
+  // Restart the animation to show the new theme's animation
+  restartAnimation();
 }
 
 // Set current year in footer and initialize theme icon and animations
