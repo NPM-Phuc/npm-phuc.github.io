@@ -185,43 +185,48 @@ body {
   border-bottom: 1px solid rgba(30, 41, 59, 0.6);
 }
 
-/* Rainbow navigation links */
-.navbar-custom nav a:nth-child(1) {
-  color: #ef4444 !important; 
-}
+/* --- Robust Rainbow Navbar Link Colors --- */
+.navbar-custom .navbar-nav > .nav-item:nth-child(1) > .nav-link { color: #ef4444 !important; }
+.navbar-custom .navbar-nav > .nav-item:nth-child(2) > .nav-link { color: #f97316 !important; }
+.navbar-custom .navbar-nav > .nav-item:nth-child(3) > .nav-link { color: #eab308 !important; }
+.navbar-custom .navbar-nav > .nav-item:nth-child(4) > .nav-link { color: #22c55e !important; }
+.navbar-custom .navbar-nav > .nav-item:nth-child(5) > .nav-link { color: #3b82f6 !important; }
+.navbar-custom .navbar-nav > .nav-item:nth-child(6) > .nav-link { color: #8b5cf6 !important; }
+.navbar-custom .navbar-nav > .nav-item:nth-child(7) > .nav-link { color: #808080 !important; }
 
-.navbar-custom nav a:nth-child(2) {
-  color: #f97316 !important;
-}
-
-.navbar-custom nav a:nth-child(3) {
-  color: #eab308 !important;
-}
-
-.navbar-custom nav a:nth-child(4) {
-  color: #22c55e !important; 
-}
-
-.navbar-custom nav a:nth-child(5) {
-  color: #3b82f6 !important; 
-}
-
-.navbar-custom nav a:nth-child(6) {
-  color: #8b5cf6 !important; 
-}
-
-.navbar-custom nav a:nth-child(7) {
-  color: #808080 !important; 
-}
-
-.navbar-custom nav a:hover {
+.navbar-custom .navbar-nav .nav-link:hover {
   opacity: 0.8;
   transform: translateY(-1px);
   transition: all 0.2s ease;
 }
 
-.btn-rounded {
-  border-radius: 50px !important;
+/* --- Fix dark/light mode mismatches --- */
+body, .container-xl, .card-custom, .navbar-custom {
+  background-color: #f8fafc;
+  color: #1e293b;
+}
+[data-bs-theme="dark"] body, [data-bs-theme="dark"] .container-xl, [data-bs-theme="dark"] .card-custom, [data-bs-theme="dark"] .navbar-custom {
+  background-color: #020617 !important;
+  color: #f1f5f9 !important;
+}
+
+/* Ensure nav links are visible in both themes */
+[data-bs-theme="dark"] .navbar-custom .navbar-nav .nav-link {
+  color: #fff !important;
+}
+[data-bs-theme="light"] .navbar-custom .navbar-nav .nav-link {
+  color: inherit !important;
+}
+
+/* Fix white text on white bg for mobile */
+@media (max-width: 768px) {
+  .navbar-custom, .navbar-custom .navbar-collapse, .navbar-custom .navbar-nav {
+    background-color: inherit !important;
+  }
+  .card-custom, .container-xl {
+    background-color: inherit !important;
+    color: inherit !important;
+  }
 }
 
 /* Static rainbow border buttons */
@@ -612,6 +617,60 @@ body {
   100% { transform: rotate(0deg); }
 }
 
+/* --- Meteor Shower Animation --- */
+.flying-star {
+  position: absolute;
+  font-size: var(--size, 1em);
+  opacity: 0;
+  left: var(--start-x, 100%);
+  top: var(--start-y, 0%);
+  animation: meteorShower var(--duration, 4s) ease-in var(--delay, 0s) 1 forwards;
+}
+
+@keyframes meteorShower {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.3) rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(-80px, 40px) scale(0.8) rotate(45deg);
+  }
+  15% {
+    opacity: 1;
+    transform: translate(-150px, 75px) scale(1) rotate(90deg);
+  }
+  85% {
+    opacity: 1;
+    transform: translate(-1200px, 600px) scale(1) rotate(450deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-1400px, 700px) scale(0.2) rotate(540deg);
+  }
+}
+
+.flying-stars-container {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  pointer-events: none !important;
+  z-index: 9999 !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+@keyframes hideMeteorShower {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+/* --- End Meteor Shower Animation --- */
+
 @media print {
   .no-print { 
     display: none !important; 
@@ -691,135 +750,175 @@ body {
   background: rgba(30, 41, 59, 0.3) !important;
 }
 
-/* Responsive adjustments for lab page */
+/* --- Responsive Improvements --- */
+@media (max-width: 1200px) {
+  .container-xl, .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-card {
+    padding: 2rem 1rem !important;
+  }
+  .section-header {
+    font-size: 2rem !important;
+  }
+  .card-custom {
+    padding: 1.5rem 1rem !important;
+  }
+}
+
 @media (max-width: 768px) {
-  #dashboard-video {
-    max-height: 300px !important;
+  .navbar-custom nav {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
   }
-  
-  .achievement-card {
-    margin-bottom: 1rem;
+  .hero-card {
+    padding: 1rem !important;
   }
-  
-  .analysis-item {
-    margin-bottom: 2rem;
+  .section-header {
+    font-size: 1.5rem !important;
   }
-}
-
-/* Meteor Shower Emoji Stars */
-.flying-stars-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 9999;
-  overflow: hidden;
-}
-
-.flying-star {
-  position: absolute;
-  font-size: var(--size, 1em);
-  opacity: 0;
-  left: var(--start-x, 100%);
-  top: var(--start-y, 0%);
-  animation: meteorShower var(--duration, 4s) ease-in var(--delay, 0s) 1 forwards;
-}
-
-/* Default behavior - show flowers, hide stars */
-.flying-star .dark-mode-star {
-  display: none;
-}
-
-.flying-star .light-mode-flower {
-  display: inline;
-  filter: drop-shadow(0 0 8px rgba(255, 105, 180, 0.6)) drop-shadow(0 0 4px rgba(255, 182, 193, 0.8));
-}
-
-/* Show stars in dark mode, hide flowers */
-[data-bs-theme="dark"] .flying-star .dark-mode-star {
-  display: inline;
-  filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.8)) drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
-}
-
-[data-bs-theme="dark"] .flying-star .light-mode-flower {
-  display: none;
-}
-
-@keyframes meteorShower {
-  0% {
-    opacity: 0;
-    transform: translate(0, 0) scale(0.3) rotate(0deg);
+  .card-custom {
+    padding: 1rem !important;
+    font-size: 1rem !important;
   }
-  10% {
-    opacity: 1;
-    transform: translate(-80px, 40px) scale(0.8) rotate(45deg);
+  .row.g-4, .row.g-3 {
+    gap: 1rem !important;
   }
-  15% {
-    opacity: 1;
-    transform: translate(-150px, 75px) scale(1) rotate(90deg);
+  .language-item, .achievement-card, .interest-card {
+    margin-bottom: 1rem !important;
   }
-  85% {
-    opacity: 1;
-    transform: translate(-1200px, 600px) scale(1) rotate(450deg);
+  .contact-details {
+    padding: 1rem !important;
   }
-  100% {
-    opacity: 0;
-    transform: translate(-1400px, 700px) scale(0.2) rotate(540deg);
+  .award-item {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.5rem !important;
+  }
+  .award-icon {
+    font-size: 1.2rem !important;
+  }
+  .award-text {
+    font-size: 1rem !important;
+  }
+  .flying-stars-container {
+    width: 100vw !important;
+    height: 100vh !important;
+  }
+  .flying-star {
+    font-size: calc(var(--size, 1em) * 0.8) !important;
+  }
+  img, video {
+    max-width: 100% !important;
+    height: auto !important;
   }
 }
 
-/* Hide meteor shower after animation completes */
-.flying-stars-container {
-  animation: hideMeteorShower 1s ease-out 8s 1 forwards;
-}
-
-@keyframes hideMeteorShower {
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-
-/* Dark mode shooting stars */
-[data-bs-theme="dark"] .shooting-star {
-  background: linear-gradient(45deg, #fff, #60a5fa, #a78bfa);
-  box-shadow: 0 0 8px #60a5fa, 0 0 16px #a78bfa, 0 0 24px #60a5fa;
-}
-
-[data-bs-theme="dark"] .shooting-star::before {
-  background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.9), rgba(167, 139, 250, 0.7), transparent);
-}
-
-/* Mobile adjustments for shooting stars */
 @media (max-width: 768px) {
-  .shooting-star {
-    width: 3px;
-    height: 3px;
+  /* --- Experience Section Image Size for Desktop --- */
+  #experience .card-custom img {
+    max-width: 80px !important;
+    max-height: 40px !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    border-radius: 10px !important;
+    display: inline-block !important;
   }
-  
-  .shooting-star::before {
-    width: 40px;
-    height: 1.5px;
+
+  /* --- Uniform Experience Section Image Size for Mobile --- */
+  #experience .card-custom img {
+    width: 80px !important;
+    height: 80px !important;
+    object-fit: cover !important;
+    border-radius: 10px !important;
+    display: block !important;
   }
-  
-  @keyframes shootingStar {
-    0% {
-      opacity: 0;
-      transform: translate(var(--start-x, 0%), var(--start-y, 0%)) scale(0);
-    }
-    10% {
-      opacity: 1;
-      transform: translate(var(--start-x, 0%), var(--start-y, 0%)) scale(1);
-    }
-    90% {
-      opacity: 1;
-      transform: translate(calc(var(--start-x, 0%) + 200px), calc(var(--start-y, 0%) + 150px)) scale(1);
-    }
-    100% {
-      opacity: 0;
-      transform: translate(calc(var(--start-x, 0%) + 250px), calc(var(--start-y, 0%) + 200px)) scale(0);
-    }
+}
+
+/* --- Force Uniform Experience Section Image Size on Desktop --- */
+#experience .card-custom img {
+  width: 50px !important;
+  height: 50px !important;
+  object-fit: cover !important;
+  border-radius: 10px !important;
+  display: inline-block !important;
+}
+
+@media (max-width: 576px) {
+  h1, .display-4 {
+    font-size: 2rem !important;
+  }
+  .section-header {
+    font-size: 1.2rem !important;
+  }
+  .card-custom {
+    padding: 0.5rem !important;
+    font-size: 0.95rem !important;
+  }
+  .contact-details {
+    padding: 0.5rem !important;
+  }
+  .award-item {
+    font-size: 0.95rem !important;
+  }
+}
+/* --- End Responsive Improvements --- */
+
+/* --- Mobile Top White Chunk Fix --- */
+@media (max-width: 768px) {
+  body {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    background-color: inherit !important;
+  }
+  .navbar-custom {
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  .container-xl {
+    padding-top: 0 !important;
+  }
+}
+/* --- End Mobile Top White Chunk Fix --- */
+
+/* --- Pill-shaped Navbar Buttons --- */
+.navbar-custom .btn,
+.navbar-custom .btn-rounded {
+  border-radius: 999px !important;
+  padding-left: 1.2em !important;
+  padding-right: 1.2em !important;
+  padding-top: 0.5em !important;
+  padding-bottom: 0.5em !important;
+}
+
+/* --- Responsive Image Fixes --- */
+img {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  object-fit: contain !important;
+  border-radius: 12px !important;
+}
+
+@media (max-width: 768px) {
+  img {
+    max-width: 100vw !important;
+    height: auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border-radius: 10px !important;
+  }
+  .card-custom img,
+  .achievement-card img,
+  .analysis-item img {
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 10px !important;
   }
 }
