@@ -1,6 +1,18 @@
 :root { 
   color-scheme: light dark; 
 }
+  [data-bs-theme="dark"] .dark-mode-star {
+    display: inline;
+  }
+  [data-bs-theme="dark"] .light-mode-flower {
+    display: none;
+  }
+  .dark-mode-star {
+    display: none;
+  }
+  .light-mode-flower {
+    display: inline;
+  }
 
 html { 
   scroll-behavior: smooth; 
