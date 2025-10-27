@@ -934,3 +934,26 @@ img {
     border-radius: 10px !important;
   }
 }
+
+/* Specific override for Hello Health project logo to opt into a larger, contained size
+   This class is applied only to the Hello Health image via the HTML tag.
+   It uses !important to override the general #experience .card-custom img rules. */
+#experience .card-custom img.experience-logo-large {
+  width: auto !important;
+  height: 70px !important;
+  max-width: 200px !important;
+  object-fit: contain !important;
+  border-radius: 10px !important;
+  display: inline-block !important;
+}
+
+/* Shared project logo sizing so project/experience logos appear visually balanced */
+#projects .card-custom img.project-logo,
+#experience .card-custom img.project-logo {
+  width: auto !important;
+  height: 70px !important;
+  max-width: 200px !important;
+  object-fit: contain !important;
+  border-radius: 10px !important;
+  display: inline-block !important;
+}
