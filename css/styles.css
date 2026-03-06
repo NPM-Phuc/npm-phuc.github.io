@@ -1,6 +1,16 @@
 :root { 
   color-scheme: light dark; 
 }
+/* Orchard palette variables */
+:root {
+  --orchard-mandarin: #ff7a1a; /* primary orange */
+  --orchard-mandarin-dark: #e65a00;
+  --orchard-leaf: #0f5132; /* forest green */
+  --orchard-forest-rgb: 15,81,50; /* rgb for forest green */
+  --orchard-cream: #fff7f0; /* soft cream */
+  --orchard-deep: #102028; /* deep slate for accents */
+  --orchard-muted: #6b7280;
+}
   [data-bs-theme="dark"] .dark-mode-star {
     display: inline;
   }
@@ -20,9 +30,12 @@ html {
 }
 
 body { 
-  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   background-color: #f8fafc;
+  background-image: radial-gradient(circle at 12% 18%, rgba(var(--orchard-forest-rgb),0.02), transparent 8%), radial-gradient(circle at 78% 36%, rgba(255,122,26,0.02), transparent 6%);
   color: #1e293b;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 [data-bs-theme="dark"] body {
@@ -54,14 +67,10 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 20px;
-  background: linear-gradient(90deg, 
-    #ff0080, #ff8c00, #ffd700, #00ff80, 
-    #00bfff, #8a2be2, #ff1493, #ff6347,
-    #32cd32, #1e90ff, #ff69b4, #ffa500
-  );
-  background-size: 400% 100%;
-  animation: flowingGradient 18s ease infinite;
+  height: 18px;
+  background: linear-gradient(90deg, var(--orchard-mandarin), var(--orchard-cream), var(--orchard-leaf));
+  background-size: 200% 100%;
+  animation: flowingGradient 14s ease infinite;
 }
 
 @keyframes flowingGradient {
@@ -85,38 +94,12 @@ body {
 .section-header::after {
   content: '';
   position: absolute;
-  bottom: -4px;
+  bottom: -6px;
   left: 0;
-  width: 100%;
-  height: 3px;
-  border-radius: 2px;
-}
-
-.languages-header::after {
-  background: linear-gradient(90deg, #8b5cf6 0%, #06b6d4 100%);
-}
-
-.contact-header::after {
-  background: linear-gradient(90deg, #06b6d4 0%, #8b5cf6 100%);
-}
-
-.experience-header::after {
-  background: linear-gradient(90deg, #f59e0b 0%, #ef4444 100%);
-}
-
-.projects-header::after {
-  background: linear-gradient(90deg, #10b981 0%, #3b82f6 100%);
-}
-
-.education-header::after {
-  background: linear-gradient(90deg, #ec4899 0%, #8b5cf6 100%);
-}
-
-.skills-header::after {
-  background: linear-gradient(90deg, 
-    #ff0080, #ff8c00, #ffd700, #00ff80, 
-    #00bfff, #8a2be2
-  );
+  width: 60%;
+  height: 4px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--orchard-mandarin), var(--orchard-leaf));
 }
 
 /* Skill category accents */
@@ -127,7 +110,7 @@ body {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #f59e0b 0%, #ef4444 100%);
+  background: linear-gradient(90deg, var(--orchard-mandarin), var(--orchard-mandarin-dark));
   border-radius: 12px 12px 0 0;
 }
 
@@ -138,7 +121,7 @@ body {
   right: 0;
   bottom: 0;
   width: 4px;
-  background: linear-gradient(180deg, #ef4444 100%, #f59e0b 100%);
+  background: linear-gradient(180deg, var(--orchard-mandarin-dark), var(--orchard-mandarin));
   border-radius: 0 12px 12px 0;
 }
 
@@ -149,7 +132,7 @@ body {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #10b981 0%, #3b82f6 100%);
+  background: linear-gradient(90deg, var(--orchard-leaf), var(--orchard-leaf) 100%);
   border-radius: 12px 12px 0 0;
 }
 
@@ -160,7 +143,7 @@ body {
   right: 0;
   bottom: 0;
   width: 4px;
-  background: linear-gradient(180deg, #3b82f6 0%, #10b981 100%);
+  background: linear-gradient(180deg, var(--orchard-leaf) 0%, var(--orchard-leaf) 100%);
   border-radius: 0 12px 12px 0;
 }
 
@@ -171,7 +154,7 @@ body {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #8b5cf6 0%, #ec4899 100%);
+  background: linear-gradient(90deg, var(--orchard-cream), #f8efe6 100%);
   border-radius: 12px 12px 0 0;
 }
 
@@ -182,14 +165,27 @@ body {
   right: 0;
   bottom: 0;
   width: 4px;
-  background: linear-gradient(180deg, #ec4899 0%, #8b5cf6 100%);
+  background: linear-gradient(180deg, #f6e8dd 0%, var(--orchard-cream) 100%);
   border-radius: 0 12px 12px 0;
+}
+
+/* Make the Soft Skills card visually stronger: clearer border and subtle cream background */
+.skill-card-3 {
+  border: 1px solid rgba(255,122,26,0.10);
+  background: #ffffff; /* keep soft skills card white per request */
+  box-shadow: 0 8px 20px rgba(255,122,26,0.06); /* subtle mandarin accent shadow */
+}
+
+[data-bs-theme="dark"] .skill-card-3 {
+  border: 1px solid rgba(255,122,26,0.16);
+  background: linear-gradient(180deg, rgba(15,23,42,0.7), rgba(15,23,42,0.64));
+  box-shadow: 0 8px 20px rgba(255,122,26,0.05);
 }
 
 .navbar-custom {
   backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.7) !important;
-  border-bottom: 1px solid rgba(226, 232, 240, 0.7);
+  background-color: rgba(255, 247, 240, 0.85) !important; /* soft cream */
+  border-bottom: 1px solid rgba(255, 122, 26, 0.12);
 }
 
 [data-bs-theme="dark"] .navbar-custom {
@@ -197,19 +193,15 @@ body {
   border-bottom: 1px solid rgba(30, 41, 59, 0.6);
 }
 
-/* --- Robust Rainbow Navbar Link Colors --- */
-.navbar-custom .navbar-nav > .nav-item:nth-child(1) > .nav-link { color: #ef4444 !important; }
-.navbar-custom .navbar-nav > .nav-item:nth-child(2) > .nav-link { color: #f97316 !important; }
-.navbar-custom .navbar-nav > .nav-item:nth-child(3) > .nav-link { color: #eab308 !important; }
-.navbar-custom .navbar-nav > .nav-item:nth-child(4) > .nav-link { color: #22c55e !important; }
-.navbar-custom .navbar-nav > .nav-item:nth-child(5) > .nav-link { color: #3b82f6 !important; }
-.navbar-custom .navbar-nav > .nav-item:nth-child(6) > .nav-link { color: #8b5cf6 !important; }
-.navbar-custom .navbar-nav > .nav-item:nth-child(7) > .nav-link { color: #808080 !important; }
-
+/* Navbar link colors: neutral professional palette */
+.navbar-custom .navbar-nav .nav-link {
+  color: var(--orchard-deep) !important;
+}
 .navbar-custom .navbar-nav .nav-link:hover {
-  opacity: 0.8;
+  color: #07131a !important; /* slightly darker deep slate */
+  opacity: 0.95;
   transform: translateY(-1px);
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
 }
 
 /* --- Fix dark/light mode mismatches --- */
@@ -246,13 +238,48 @@ body, .container-xl, .card-custom, .navbar-custom {
   position: relative;
   border: 2px solid transparent;
   background: linear-gradient(var(--bs-body-bg), var(--bs-body-bg)) padding-box,
-              linear-gradient(45deg, #ef4444, #f97316, #eab308, #22c55e, #3b82f6, #8b5cf6) border-box;
+              linear-gradient(45deg, var(--orchard-mandarin), #ffb37a, var(--orchard-leaf)) border-box;
 }
 
 /* Project card improvements */
 .card-custom {
   display: flex;
   flex-direction: column;
+}
+
+/* Project CTA buttons: use orchard mandarin as primary accent */
+.btn-outline-primary {
+  color: var(--orchard-mandarin) !important;
+  border-color: rgba(255,122,26,0.35) !important;
+}
+.btn-outline-primary:hover,
+.btn-outline-primary:focus-visible {
+  background-color: var(--orchard-mandarin) !important;
+  color: #fff !important;
+  border-color: var(--orchard-mandarin-dark) !important;
+}
+.btn-outline-primary.btn-rounded {
+  background: linear-gradient(var(--bs-body-bg), var(--bs-body-bg)) padding-box,
+              linear-gradient(45deg, var(--orchard-mandarin), #ffb37a) border-box;
+}
+
+/* Ensure project CTA outline buttons remain readable in light theme (fix white-on-white hover) */
+[data-bs-theme="light"] .btn-outline-primary:hover,
+[data-bs-theme="light"] .btn-outline-primary:focus-visible,
+[data-bs-theme="light"] .btn-outline-primary:active {
+  background-color: var(--orchard-mandarin) !important;
+  color: #ffffff !important;
+  border-color: var(--orchard-mandarin-dark) !important;
+  background-image: none !important;
+}
+
+[data-bs-theme="light"] .btn-outline-primary.btn-rounded:hover,
+[data-bs-theme="light"] .btn-outline-primary.btn-rounded:focus-visible,
+[data-bs-theme="light"] .btn-outline-primary.btn-rounded:active {
+  background-color: var(--orchard-mandarin) !important;
+  color: #ffffff !important;
+  border-color: var(--orchard-mandarin-dark) !important;
+  background-image: none !important;
 }
 
 .card-custom .mt-auto {
@@ -272,16 +299,16 @@ body, .container-xl, .card-custom, .navbar-custom {
   gap: 8px;
   padding: 8px 12px;
   margin: 4px 0;
-  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 193, 7, 0.05));
-  border: 1px solid rgba(255, 215, 0, 0.2);
+  background: linear-gradient(135deg, rgba(255, 122, 26, 0.06), rgba(255, 153, 77, 0.04));
+  border: 1px solid rgba(255, 122, 26, 0.12);
   border-radius: 8px;
   position: relative;
   overflow: hidden;
 }
 
 [data-bs-theme="dark"] .award-item {
-  background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 193, 7, 0.08));
-  border: 1px solid rgba(255, 215, 0, 0.3);
+  background: linear-gradient(135deg, rgba(255, 122, 26, 0.12), rgba(255, 153, 77, 0.06));
+  border: 1px solid rgba(255, 122, 26, 0.2);
 }
 
 .award-item::before {
@@ -312,8 +339,10 @@ body, .container-xl, .card-custom, .navbar-custom {
 }
 
 .award-icon {
-  font-size: 18px;
-  filter: drop-shadow(0 0 3px rgba(255, 215, 0, 0.5));
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  color: #b45309;
 }
 
 .award-sparkles {
@@ -371,11 +400,11 @@ body, .container-xl, .card-custom, .navbar-custom {
 
 .award-text {
   font-weight: 500;
-  color: #b45309;
+  color: var(--orchard-mandarin-dark);
 }
 
 [data-bs-theme="dark"] .award-text {
-  color: #fbbf24;
+  color: #ffb37a;
 }
 
 /* Language items */
@@ -398,8 +427,13 @@ body, .container-xl, .card-custom, .navbar-custom {
 }
 
 .language-flag {
-  font-size: 24px;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.04);
+  color: inherit;
 }
 
 .language-name {
@@ -413,51 +447,51 @@ body, .container-xl, .card-custom, .navbar-custom {
   opacity: 0.8;
 }
 
-/* Individual language colors */
+/* Orchard language colors */
 .language-english {
-  background: linear-gradient(135deg, rgba(29, 78, 216, 0.1), rgba(59, 130, 246, 0.05));
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  background: linear-gradient(135deg, rgba(255,122,26,0.06), rgba(255,186,120,0.03));
+  border: 1px solid rgba(255,122,26,0.12);
 }
 
 .language-vietnamese {
-  background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(239, 68, 68, 0.05));
-  border: 1px solid rgba(239, 68, 68, 0.2);
+  background: linear-gradient(135deg, rgba(var(--orchard-forest-rgb),0.06), rgba(var(--orchard-forest-rgb),0.03));
+  border: 1px solid rgba(var(--orchard-forest-rgb),0.12);
 }
 
 .language-chinese {
-  background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(251, 191, 36, 0.05));
-  border: 1px solid rgba(251, 191, 36, 0.2);
+  background: linear-gradient(135deg, rgba(255,122,26,0.06), rgba(255,153,77,0.03));
+  border: 1px solid rgba(255,122,26,0.12);
 }
 
 .language-japanese {
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(255, 255, 255, 0.1));
-  border: 1px solid rgba(156, 163, 175, 0.3);
+  background: linear-gradient(135deg, rgba(255,153,77,0.04), rgba(255,255,255,0.04));
+  border: 1px solid rgba(155,155,155,0.12);
 }
 
 [data-bs-theme="dark"] .language-english {
-  background: linear-gradient(135deg, rgba(29, 78, 216, 0.15), rgba(59, 130, 246, 0.08));
-  border: 1px solid rgba(59, 130, 246, 0.3);
+  background: linear-gradient(135deg, rgba(255,122,26,0.10), rgba(255,186,120,0.04));
+  border: 1px solid rgba(255,122,26,0.18);
 }
 
 [data-bs-theme="dark"] .language-vietnamese {
-  background: linear-gradient(135deg, rgba(220, 38, 38, 0.15), rgba(239, 68, 68, 0.08));
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  background: linear-gradient(135deg, rgba(var(--orchard-forest-rgb),0.12), rgba(var(--orchard-forest-rgb),0.05));
+  border: 1px solid rgba(var(--orchard-forest-rgb),0.18);
 }
 
 [data-bs-theme="dark"] .language-chinese {
-  background: linear-gradient(135deg, rgba(220, 38, 38, 0.15), rgba(251, 191, 36, 0.08));
-  border: 1px solid rgba(251, 191, 36, 0.3);
+  background: linear-gradient(135deg, rgba(255,122,26,0.10), rgba(255,153,77,0.05));
+  border: 1px solid rgba(255,122,26,0.18);
 }
 
 [data-bs-theme="dark"] .language-japanese {
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(255, 255, 255, 0.05));
-  border: 1px solid rgba(156, 163, 175, 0.4);
+  background: linear-gradient(135deg, rgba(255,153,77,0.06), rgba(255,255,255,0.03));
+  border: 1px solid rgba(155,155,155,0.2);
 }
 
 /* Contact details styling */
 .contact-details {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.05));
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  background: linear-gradient(135deg, rgba(var(--orchard-forest-rgb),0.06), rgba(255,247,240,0.06));
+  border: 1px solid rgba(255,122,26,0.08);
   border-radius: 16px;
   padding: 20px;
   position: relative;
@@ -465,8 +499,8 @@ body, .container-xl, .card-custom, .navbar-custom {
 }
 
 [data-bs-theme="dark"] .contact-details {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.08));
-  border: 1px solid rgba(59, 130, 246, 0.3);
+  background: linear-gradient(135deg, rgba(var(--orchard-forest-rgb),0.12), rgba(255,247,240,0.04));
+  border: 1px solid rgba(255,122,26,0.14);
 }
 
 .contact-details::before {
@@ -477,8 +511,8 @@ body, .container-xl, .card-custom, .navbar-custom {
   width: 100%;
   height: 100%;
   background: linear-gradient(90deg, 
-    transparent, 
-    rgba(59, 130, 246, 0.1), 
+    transparent,
+    rgba(255,122,26,0.06),
     transparent
   );
   animation: contactShine 4s infinite;
@@ -503,23 +537,26 @@ body, .container-xl, .card-custom, .navbar-custom {
 
 .contact-item:hover {
   transform: translateY(-2px);
-  background: rgba(59, 130, 246, 0.1);
+  background: rgba(255, 122, 26, 0.06);
 }
 
 [data-bs-theme="dark"] .contact-item:hover {
-  background: rgba(59, 130, 246, 0.15);
+  background: rgba(var(--orchard-forest-rgb),0.12);
 }
 
 .contact-icon {
-  font-size: 24px;
-  filter: drop-shadow(0 2px 4px rgba(59, 130, 246, 0.3));
-  animation: iconPulse 2s ease-in-out infinite;
+  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: rgba(var(--orchard-forest-rgb),0.06);
+  color: inherit;
 }
 
-@keyframes iconPulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-}
+/* iconPulse removed for a more professional, static look */
 
 .contact-info {
   flex: 1;
@@ -531,7 +568,7 @@ body, .container-xl, .card-custom, .navbar-custom {
 }
 
 .contact-info a:hover {
-  color: #3b82f6 !important;
+  color: var(--orchard-mandarin-dark) !important;
 }
 
 .contact-label {
@@ -580,19 +617,19 @@ body, .container-xl, .card-custom, .navbar-custom {
 
 /* Individual progress bar colors matching language themes */
 .english-bar {
-  background: linear-gradient(90deg, #1d4ed8, #3b82f6);
+  background: linear-gradient(90deg, var(--orchard-mandarin), var(--orchard-leaf));
 }
 
 .vietnamese-bar {
-  background: linear-gradient(90deg, #dc2626, #fbbf24);
+  background: linear-gradient(90deg, var(--orchard-leaf), var(--orchard-mandarin));
 }
 
 .chinese-bar {
-  background: linear-gradient(90deg, #dc2626, #ef4444);
+  background: linear-gradient(90deg, var(--orchard-mandarin), var(--orchard-leaf));
 }
 
 .japanese-bar {
-  background: linear-gradient(90deg, #ef4444, #9ca3af);
+  background: linear-gradient(90deg, var(--orchard-leaf), var(--orchard-cream));
 }
 
 .language-progress-bar::after {
@@ -602,7 +639,7 @@ body, .container-xl, .card-custom, .navbar-custom {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.24), transparent);
   animation: shimmer 2s infinite;
 }
 
@@ -696,17 +733,19 @@ body, .container-xl, .card-custom, .navbar-custom {
   .print-p-0 { 
     padding: 0 !important; 
   }
+  /* Hide decorative hero gradient in print */
+  .card-custom.hero-card::after { display: none !important; }
 }
 
 /* Interactive visualization styling for lab page */
 .video-container {
   transition: all 0.3s ease;
-  border: 2px solid rgba(59, 130, 246, 0.2);
+  border: 2px solid rgba(255,122,26,0.08);
 }
 
 .video-container:hover {
-  border-color: rgba(59, 130, 246, 0.4);
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+  border-color: rgba(255,122,26,0.16);
+  box-shadow: 0 8px 25px rgba(255,122,26,0.10);
   transform: translateY(-2px);
 }
 
@@ -728,7 +767,7 @@ body, .container-xl, .card-custom, .navbar-custom {
 
 .demo-feature:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+  box-shadow: 0 4px 12px rgba(255,122,26,0.08);
 }
 
 .achievement-card {
@@ -907,6 +946,36 @@ body, .container-xl, .card-custom, .navbar-custom {
   padding-right: 1.2em !important;
   padding-top: 0.5em !important;
   padding-bottom: 0.5em !important;
+}
+
+/* Ensure header buttons remain readable on hover/focus */
+.navbar-custom .btn:hover,
+.navbar-custom .btn:focus-visible,
+.navbar-custom .btn:active {
+  background-color: #1f2937 !important; /* dark slate */
+  color: #ffffff !important; /* white text for contrast */
+  border-color: #1f2937 !important;
+  opacity: 1 !important;
+}
+
+/* Stronger override for Bootstrap outline buttons in light theme (fixes white-on-white hover) */
+[data-bs-theme="light"] .navbar-custom .btn-outline-secondary:hover,
+[data-bs-theme="light"] .navbar-custom .btn-outline-secondary:focus-visible,
+[data-bs-theme="light"] .navbar-custom .btn-outline-secondary:active {
+  background-color: #1f2937 !important;
+  color: #ffffff !important;
+  border-color: #1f2937 !important;
+  background-image: none !important;
+}
+
+/* And for any rounded/gradient button variants used in the navbar */
+[data-bs-theme="light"] .navbar-custom .btn-rounded.btn-outline-secondary:hover,
+[data-bs-theme="light"] .navbar-custom .btn-rounded.btn-outline-secondary:focus-visible,
+[data-bs-theme="light"] .navbar-custom .btn-rounded.btn-outline-secondary:active {
+  background-color: #1f2937 !important;
+  color: #ffffff !important;
+  border-color: #1f2937 !important;
+  background-image: none !important;
 }
 
 /* --- Responsive Image Fixes --- */
